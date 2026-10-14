@@ -1,62 +1,112 @@
-# GitHub & Jira Integration Dashboard
+# GitHub–Jira Integration Platform
 
-A MERN-style project for connecting GitHub and Jira data into a unified dashboard.
+A MERN stack application that integrates GitHub with Jira to connect software development activities with project management workflows.
+
+## Tech Stack
+
+- **Frontend:** React.js, JavaScript, HTML, CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **APIs:** GitHub REST API, Jira REST API
+- **Tools:** Git, GitHub, Postman, VS Code
 
 ## Features
 
-- GitHub user and repository overview
-- Jira project and issue overview
-- Pull request and commit correlation using Jira issue keys
-- Search-friendly dashboard with summary cards
-- Backend API layer for external integrations
-- Demo/mock data support when live credentials are unavailable
+- GitHub API integration
+- Jira REST API integration
+- Environment-based configuration
+- MongoDB database connectivity
+- React-based user interface
+- Backend API communication
 
-## Project structure
+*Note: Features may vary depending on the current implementation.*
 
-- backend/ — Express API and service layer
-- frontend/ — React dashboard UI
+## Getting Started
 
-## Setup
+### 1. Clone the Repository
 
-1. Open the backend folder and create a `.env` file based on `.env.example`.
-2. Start the backend:
-
-```powershell
-cd backend
-node server.js
+```bash
+git clone https://github.com/surajingle07/github_jira_platform.git
+cd github_jira_platform
 ```
 
-3. Start the frontend:
+### 2. Install Dependencies
 
-```powershell
-cd frontend
+Install dependencies in the frontend and backend directories:
+
+```bash
+cd backend
 npm install
-npm run dev -- --host 127.0.0.1
 ```
 
-4. Open the app in the browser:
-
-```text
-http://127.0.0.1:5173
+```bash
+cd ../frontend
+npm install
 ```
 
-## Live-demo behavior
+### 3. Configure Environment Variables
 
-This project currently supports demo/mock data if environment variables are not set, which helps the app run without private GitHub/Jira credentials.
+Create a `.env` file in the backend directory:
 
-## Production next steps
+```env
+PORT=8000
+NODE_ENV=development
+MONGODB_URI=your_mongodb_connection_string
+FRONTEND_URL=http://localhost:5173
+GITHUB_TOKEN=your_github_token
+JIRA_BASE_URL=https://your-site.atlassian.net
+JIRA_EMAIL=your_atlassian_email
+JIRA_API_TOKEN=your_jira_api_token
+```
 
-- Add real MongoDB connection
-- Add GitHub App or OAuth flow
-- Add Jira OAuth flow
-- Add persistent sync and webhook processing
-- Add authentication/authorization for user-specific access
+Replace the placeholder values with your own credentials. Never commit your `.env` file or publish API tokens.
 
-## Verification
+### 4. Run the Application
 
-The project has a backend test suite for Jira key extraction and matching logic.
+Start the backend:
 
-```powershell
+```bash
 cd backend
-npm test
+npm run dev
 ```
+
+Start the frontend in a separate terminal:
+
+```bash
+cd frontend
+npm run dev
+```
+
+Open the local frontend URL displayed in your terminal, typically `http://localhost:5173`.
+
+> **Note:** Update the directory names and commands to match your actual project structure and `package.json` scripts.
+
+## Environment Variables
+
+| Variable | Description |
+|---|---|
+| `PORT` | Backend server port |
+| `NODE_ENV` | Application environment |
+| `MONGODB_URI` | MongoDB connection string |
+| `FRONTEND_URL` | Frontend application URL |
+| `GITHUB_TOKEN` | GitHub API token |
+| `JIRA_BASE_URL` | Jira site URL |
+| `JIRA_EMAIL` | Atlassian account email |
+| `JIRA_API_TOKEN` | Jira API token |
+
+## Security
+
+- Store credentials in environment variables.
+- Add `.env` to `.gitignore`.
+- Use API tokens with minimum required permissions.
+- Revoke and replace any exposed credentials.
+
+## Author
+
+**Suraj Ingle**
+
+GitHub: [@surajingle07](https://github.com/surajingle07)
+
+## Repository
+
+[github_jira_platform](https://github.com/surajingle07/github_jira_platform)
